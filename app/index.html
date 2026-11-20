@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA-style cover art maker</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">VC</span>
+    <span class="brand-name">VICE COVER STUDIO</span>
+  </div>
+  <p class="tagline">Turn your photo + caption into Vice City cover art. Offline — your photos never leave this machine.</p>
+</header>
+
+<main class="workspace">
+  <section class="stage" aria-label="Cover preview">
+    <div class="canvas-wrap">
+      <canvas id="cover" width="1080" height="1350"></canvas>
+      <p class="hint" id="hint">Drag a photo to move it &middot; scroll to zoom &middot; click a panel to select it</p>
+    </div>
+    <div class="size-row" role="group" aria-label="Export size">
+      <button type="button" class="size-btn" data-size="1080x1080">1080 &times; 1080</button>
+      <button type="button" class="size-btn active" data-size="1080x1350">1080 &times; 1350</button>
+      <button type="button" class="size-btn" data-size="1920x1080">1920 &times; 1080</button>
+    </div>
+    <div class="export-row">
+      <button type="button" id="export-one" class="btn primary">Export PNG (selected size)</button>
+      <button type="button" id="export-all" class="btn">Export all 3 sizes</button>
+    </div>
+    <p class="status" id="status" role="status"></p>
+  </section>
+
+  <aside class="panel" aria-label="Cover controls">
+    <section class="group">
+      <h2>1 &middot; Layout</h2>
+      <div class="choices" id="layout-choices"></div>
+    </section>
+
+    <section class="group">
+      <h2>2 &middot; Photos</h2>
+      <p class="group-note">One photo can fill every panel, or give each panel its own.</p>
+      <div class="photo-actions">
+        <label class="btn file-btn">Add your photo
+          <input type="file" id="photo-file" accept="image/*" multiple hidden>
+        </label>
+        <button type="button" class="btn" id="demo-photos">Load demo photos</button>
+      </div>
+      <div class="panel-list" id="panel-list"></div>
+    </section>
+
+    <section class="group">
+      <h2>3 &middot; Sunset grade</h2>
+      <div class="choices" id="grade-choices"></div>
+      <label class="slider-row">Grade strength
+        <input type="range" id="grade-strength" min="0" max="100" value="80">
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>4 &middot; Caption</h2>
+      <label class="field">Title
+        <input type="text" id="title-text" value="VICE CITY" maxlength="24" autocomplete="off">
+      </label>
+      <label class="field">Subtitle
+        <input type="text" id="subtitle-text" value="Neon Shore" maxlength="40" autocomplete="off">
+      </label>
+      <div class="choices" id="title-style-choices"></div>
+      <label class="slider-row">Title size
+        <input type="range" id="title-size" min="60" max="140" value="100">
+      </label>
+      <div class="choices" id="title-pos-choices"></div>
+    </section>
+
+    <section class="group">
+      <h2>5 &middot; Finish</h2>
+      <label class="check-row"><input type="checkbox" id="opt-frame" checked> White poster frame</label>
+      <label class="check-row"><input type="checkbox" id="opt-grain" checked> Film grain</label>
+      <label class="check-row"><input type="checkbox" id="opt-vignette" checked> Vignette</label>
+      <label class="check-row"><input type="checkbox" id="opt-badge" checked> Sunset badge</label>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>100% offline. No upload, no account, no watermark. Fonts: Anton &amp; Pacifico (SIL Open Font License, see fonts/OFL.txt). Original artwork — no Rockstar Games logo, artwork or font.</p>
+</footer>
+
+<script type="module" src="src/app.js"></script>
+</body>
+</html>

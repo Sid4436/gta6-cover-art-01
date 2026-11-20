@@ -1,0 +1,258 @@
+@font-face {
+  font-family: "Anton";
+  src: url("fonts/anton.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pacifico";
+  src: url("fonts/pacifico.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #12081f;
+  --bg2: #1d0b2e;
+  --panel: #221033;
+  --line: #3d1c5c;
+  --ink: #f6ead9;
+  --muted: #c9a8d8;
+  --pink: #ff2e88;
+  --orange: #ff7a18;
+  --teal: #19e3c2;
+  --gold: #ffc93c;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: linear-gradient(160deg, var(--bg) 0%, var(--bg2) 55%, #2b0f3a 100%);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 16px 24px 10px;
+  border-bottom: 2px solid var(--line);
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--pink), var(--orange) 55%, var(--gold));
+  color: #fff;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.brand-name {
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-size: 26px;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #ffd166, var(--pink) 55%, var(--teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline { margin: 0; color: var(--muted); font-size: 14px; }
+
+.workspace {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.stage { flex: 1 1 560px; min-width: 320px; }
+
+.canvas-wrap {
+  background: #0a0512;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+#cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 6px;
+  cursor: grab;
+  touch-action: none;
+  background: #000;
+}
+
+#cover:active { cursor: grabbing; }
+
+.hint { margin: 10px 0 0; text-align: center; color: var(--muted); font-size: 13px; }
+
+.size-row, .export-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.size-btn {
+  flex: 1;
+  padding: 10px 6px;
+  border-radius: 9px;
+  border: 2px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.size-btn.active {
+  border-color: var(--pink);
+  background: linear-gradient(135deg, rgba(255, 46, 136, 0.35), rgba(255, 122, 24, 0.25));
+}
+
+.btn {
+  padding: 11px 16px;
+  border-radius: 9px;
+  border: 2px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--pink), var(--orange));
+  border-color: transparent;
+  color: #fff;
+  flex: 1;
+}
+
+.btn:hover { filter: brightness(1.15); }
+
+.status { min-height: 20px; margin: 10px 0 0; color: var(--teal); font-size: 13px; }
+
+.panel {
+  flex: 0 0 340px;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 6px 18px 18px;
+}
+
+.group { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.group:last-child { border-bottom: none; }
+
+.group h2 {
+  margin: 0 0 10px;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.group-note { margin: -4px 0 10px; color: var(--muted); font-size: 13px; }
+
+.choices { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.choice-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--line);
+  background: #180a26;
+  color: var(--ink);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.choice-btn.active { border-color: var(--teal); background: rgba(25, 227, 194, 0.14); }
+
+.photo-actions { display: flex; gap: 10px; margin-bottom: 12px; }
+
+.file-btn { flex: 1; text-align: center; }
+
+.panel-list { display: flex; flex-direction: column; gap: 10px; }
+
+.panel-card {
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #180a26;
+}
+
+.panel-card.selected { border-color: var(--pink); }
+
+.panel-card h3 { margin: 0 0 8px; font-size: 13px; letter-spacing: 1px; color: var(--muted); }
+
+.panel-card .row { display: flex; gap: 8px; align-items: center; }
+
+.panel-card .mini-btn {
+  padding: 6px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.panel-card input[type="range"] { flex: 1; accent-color: var(--pink); }
+
+.field { display: block; margin-bottom: 10px; font-size: 13px; color: var(--muted); }
+
+.field input[type="text"] {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--line);
+  background: #180a26;
+  color: var(--ink);
+  font-size: 16px;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  letter-spacing: 1px;
+}
+
+.slider-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); margin-top: 10px; }
+.slider-row input[type="range"] { flex: 1; accent-color: var(--pink); }
+
+.check-row { display: flex; align-items: center; gap: 8px; font-size: 14px; margin: 7px 0; cursor: pointer; }
+.check-row input { accent-color: var(--pink); width: 17px; height: 17px; }
+
+.foot { padding: 0 24px 24px; text-align: center; color: var(--muted); font-size: 12px; }
+
+/* Full-frame cover mode used for screenshots: the app draws the cover edge to edge. */
+body.shot-cover { background: #000; }
+body.shot-cover .topbar, body.shot-cover .panel, body.shot-cover .foot,
+body.shot-cover .size-row, body.shot-cover .export-row, body.shot-cover .status,
+body.shot-cover .hint { display: none; }
+body.shot-cover .workspace { display: block; padding: 0; margin: 0; max-width: none; }
+body.shot-cover .stage { margin: 0; }
+body.shot-cover .canvas-wrap { border: 0; border-radius: 0; padding: 0; background: #000; box-shadow: none; }
+body.shot-cover #cover { max-height: none; width: 100vw; height: 100vh; object-fit: fill; border-radius: 0; cursor: default; }
